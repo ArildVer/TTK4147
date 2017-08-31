@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+	printf("Hello world\n");
+	return 0;
+	
+	allocate(8);
+	
+}
+
+
+void allocate(int value) {
+	int *ptr = NULL;
+	ptr = malloc(1024*1024*sizeof(char));
+	*ptr = value;
+	printf("test of allocated memory: %i\n");
+}
