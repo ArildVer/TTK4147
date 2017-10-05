@@ -5,9 +5,9 @@ XENO_CONFIG:=$(XENO_DESTDIR)/usr/bin/xeno-config
 XENO_CFLAGS:=$(shell DESTDIR=$(XENO_DESTDIR) $(XENO_CONFIG) --skin native --cflags)
 XENO_LIBS:=$(shell DESTDIR=$(XENO_DESTDIR) $(XENO_CONFIG) --skin native --ldflags)
 # compiler flags
-CFLAGS = -g -Wall $(XENO_CFLAGS)
+CFLAGS = -g -Wall $(XENO_CFLAGS) -D_GNU_SOURCE
 # linker flags
-LDFLAGS = -g $(XENO_LIBS)
+LDFLAGS = -g $(XENO_LIBS) -lcomedi -pthread -lrt -lm
 # list of sources
 SOURCES = $(shell find -name "*.c")
 # default rule, to compile everything

@@ -47,13 +47,13 @@ void monitor_busy(void *temp) {
 	set_cpu(1);
 	int *chan;
 	chan = temp;
-	struct timespec tim;
-	tim.tv_sec = 0;
-	tim.tv_nsec = 5000;
+	struct timespec time;
+	time.tv_sec = 0;
+	time.tv_nsec = 5000;
 	while (1) {
 		if (!io_read(*chan)){
 			io_write(*chan, 0);
-			nanosleep(&tim, NULL);
+			nanosleep(&time, NULL);
 			io_write(*chan, 1);
 		}
 	}
